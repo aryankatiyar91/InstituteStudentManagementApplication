@@ -1,0 +1,51 @@
+@charset "ISO-8859-1";
+body
+{
+	background-color: #ffff00;
+	width:100%;
+	text-align: center; 
+}
+
+.center, .save
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.sForm
+{
+	text-align: right;
+	margin-right: 40%;
+}
+
+.form,button
+{
+	font-size: 20px;
+}
+.save
+{
+	font-size: 20px;
+	display: flex;
+	margin-right: 7%;
+}
+
+.log:hover
+{
+	color: blue;
+}
+
+.log
+{
+	font-size: 30px;
+	color:red;
+}
+
+.out
+{
+	margin-top: 28%;
+}
+
+.hide
+{
+	-webkit-text-security:disc;
+}
