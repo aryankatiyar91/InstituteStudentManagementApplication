@@ -19,42 +19,56 @@
 <title>Display Student Page</title>
 </head>
 <body>
-<div class="list">
-	<h1><a href="student">Student</a> List:</h1><br>
-	<table class="center" border="1" cellspacing="5" cellpadding="10">
-		<thead>
-			<tr>
-				<th>Sno: </th>
-				<th>Name: </th>
-				<th>Email: </th>
-				<th>Password: </th>
-				<th>Mobile: </th>
-				<th>Actions: </th>
-			</tr>
-		</thead>
-		
-		<tbody>
-		<% List<Student> stud=(List<Student>) request.getAttribute("student"); 
-			for(Student s:stud)
-			{
-		%>
+
+	<% String student=(String) request.getAttribute("student");%>
+	<c:if test='<%=student!=null && student.equals("sAdded")%>'>
+			<h2 class="pass">One Student record added Successfully!!</h2>
+	</c:if>
+	<c:if test='<%=student!=null && student.equals("sUpdated")%>'>
+			<h2 class="pass">One Student record updated Successfully!!</h2>
+	</c:if>
+	<c:if test='<%=student!=null && student.equals("sDeleted")%>'>
+			<h2 class="failed">One Student record Deleted Successfully!!</h2>
+	</c:if>
+	
+	<div class="list">
+		<h1><a href="student">Student</a> List:</h1><br>
+		<table class="center" border="1" cellspacing="5" cellpadding="10">
+			<thead>
 				<tr>
-					<td><c:out value="<%=s.getSno()%>"></c:out></td>
-					<td><c:out value="<%=s.getName()%>"></c:out></td>
-					<td><c:out value="<%=s.getEmail()%>"></c:out></td>
-					<td class="hide"><c:out value="<%=s.getPassword()%>"></c:out></td>
-					<td><c:out value="<%=s.getMobile()%>"></c:out></td>
-					<td>
-						<a href="editForm?id=<c:out value="<%=s.getSno()%>"></c:out>" >Edit</a>  
-				  		&nbsp; &nbsp;  
-				  		<a href="delete?id=<c:out value="<%=s.getSno()%>"></c:out>" onclick="confirm('Are you sure?\nThis student record will be deleted permanently!!')">Delete</a>
-					</td>
+					<th>Sno: </th>
+					<th>Name: </th>
+					<th>Email: </th>
+					<th>Password: </th>
+					<th>Mobile: </th>
+					<th>Actions: </th>
 				</tr>
-		<%
-			}
-		%>
-		</tbody>
-	</table>
-</div>
+			</thead>
+			
+			<tbody>
+			<% List<Student> stud=(List<Student>) request.getAttribute("allStudent"); 
+				for(Student s:stud)
+				{
+			%>
+					<tr>
+						<td><c:out value="<%=s.getSno()%>"></c:out></td>
+						<td><c:out value="<%=s.getName()%>"></c:out></td>
+						<td><c:out value="<%=s.getEmail()%>"></c:out></td>
+						<td class="hide"><c:out value="<%=s.getPassword()%>"></c:out></td>
+						<td><c:out value="<%=s.getMobile()%>"></c:out></td>
+						<td>
+							<input type="submit" value="Edit" class="edit" onclick="editStud(<%=s.getSno()%>);" /> 
+					  		&nbsp; &nbsp;  
+					  		<input type="submit" value="Delete" class="delete" onclick="deleteStud(<%=s.getSno()%>);" />
+						</td>
+					</tr>
+			<%
+				}
+			%>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>
+
+<!--<a href="delete?id=<c:out value="<%//=s.getSno()%>"></c:out>" onclick="deleteStud()">Delete</a>  -->

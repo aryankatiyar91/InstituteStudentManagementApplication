@@ -26,13 +26,30 @@ body
 {
 	font-size: 20px;
 	display: flex;
-	margin-right: 7%;
+	margin-right: 5%;
 }
 
-.log:hover
+.log:hover, .fail
 {
-	color: blue;
+	color: rgb(128, 0, 255);
 }
+
+.save:hover
+{
+	background-color: rgb(128, 0, 255);
+}
+
+.btnLogin
+{
+	margin-left: 3%;
+}
+
+
+.signUp:hover, .btnLogin:hover, .btnReg:hover, .btnDel:hover
+{
+	background-color: rgb(128, 255, 255);
+}
+
 
 .log
 {
@@ -43,6 +60,26 @@ body
 .out
 {
 	margin-top: 28%;
+}
+
+.edit
+{
+	background-color: #80ff00;	
+}
+
+.delete, .btnDel
+{
+	background-color: #ff8080;
+}
+
+.failed
+{
+	color: #ff0080;
+}
+
+.pass
+{
+	color:#00ff00;
 }
 
 .hide

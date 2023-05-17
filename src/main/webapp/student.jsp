@@ -11,7 +11,7 @@
 	<%@ include file="js/sample.js" %>
 </script>
 <body>
-	<h1>Welcome Admin</h1>
+	<h1>Welcome <%=request.getAttribute("admin") %></h1>
 	<br><br>
 	<form action="student" class="form">
 		<button name="reg">Register Student</button>
